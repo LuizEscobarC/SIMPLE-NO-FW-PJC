@@ -1,6 +1,6 @@
 <?php
 /** BASE URL */
-define("ROOT", "http://www.localhost");
+define("ROOT", "http://localhost");
 
 /** DATABASE CONNECT */
 define("DATA_LAYER_CONFIG", [

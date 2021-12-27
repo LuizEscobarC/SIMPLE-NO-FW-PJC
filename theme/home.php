@@ -37,7 +37,7 @@
                 }
             }
 
-            $('form').submit(function (e) {
+            $('.create form').submit(function (e) {
                 e.preventDefault();
                 var users = $('.users');
                 var div_message = $('.form_ajax');
@@ -77,7 +77,7 @@
                 $.post(data.action, data, function () {
                     div.fadeOut();
                 }, 'json').fail(function () {
-                    alert('Já era negão, Mete o pé do meu lado!');
+                    alert('Teste . Deu erro');
                 });
             })
         });
