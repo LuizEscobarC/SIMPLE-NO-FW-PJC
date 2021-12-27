@@ -1,6 +1,8 @@
 $(function () {
+    var body = $('body');
+
     function load(action) {
-        var div_load = $('.ajax_load');
+        let div_load = $('.ajax_load');
         if (action === "open") {
             div_load.fadeIn().css("display", "flex");
         } else {
@@ -10,9 +12,9 @@ $(function () {
 
     $('.create form').submit(function (e) {
         e.preventDefault();
-        var users = $('.users');
-        var div_message = $('.form_ajax');
-        var form = $(this);
+        let users = $('.users');
+        let div_message = $('.form_ajax');
+        let form = $(this);
 
         $.ajax({
             url: form.attr('action'),
@@ -40,13 +42,15 @@ $(function () {
         });
     });
 
-    $('body').on('click', '[data-action]', function (e) {
+    body.on('click', '[data-action]', function (e) {
         e.preventDefault();
-        var data = $(this).data();
-        var div = $(this).parent();
+        let data = $(this).data();
+        let div = $(this).parent();
 
         $.post(data.action, data, function () {
-            div.fadeOut();
+            div.fadeOut(function () {
+                div.remove();
+            });
         }, 'json').fail(function () {
             alert('Teste . Deu erro');
         });
